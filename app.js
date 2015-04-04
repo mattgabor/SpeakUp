@@ -16,27 +16,27 @@ watson = require('watson-developer-cloud'),
 app.use(express.static(__dirname + '/public')); //setup static public directory
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
-extend = require('util')._extend;
+//extend = require('util')._extend;
 
-// Bootstrap application settings
-require('./config/express')(app);
-
-// credentials
-var credentials = extend({
-    version: 'v2',
-    // our info
-    password: 'VVKrMofl3Si9',
-    url: 'https://stream.watsonplatform.net/speech-to-text-beta/api',
-    username: 'ddcc71d6-8535-46ca-8e8c-02c4e040c05b'
-}, bluemix.getServiceCreds('speech_to_text')); // VCAP_SERVICES
-
-var speechToText = watson.speech_to_text(credentials);
-
-// Configure express
-require('./config/express')(app, speechToText);
-
-// Configure sockets
-require('./config/socket')(io, speechToText);
+//// Bootstrap application settings
+//require('./config/express')(app);
+//
+//// credentials
+//var credentials = extend({
+//    version: 'v2',
+//    // our info
+//    password: 'VVKrMofl3Si9',
+//    url: 'https://stream.watsonplatform.net/speech-to-text-beta/api',
+//    username: 'ddcc71d6-8535-46ca-8e8c-02c4e040c05b'
+//}, bluemix.getServiceCreds('speech_to_text')); // VCAP_SERVICES
+//
+//var speechToText = watson.speech_to_text(credentials);
+//
+//// Configure express
+//require('./config/express')(app, speechToText);
+//
+//// Configure sockets
+//require('./config/socket')(io, speechToText);
 
 // render index page
 app.get('/', function(req, res){
