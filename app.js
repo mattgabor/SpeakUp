@@ -14,14 +14,15 @@ var app = require('express')(),
   extend = require('util')._extend;
   app.set('view engine', 'jade');
 
-// if bluemix credentials exists, then override local
+// Speech to Text Credentials
 var stcredentials = extend({
   version:'v1',
 	username: '<username>',
 	password: '<password>'
 }, bluemix.getServiceCreds('speech_to_text')); // VCAP_SERVICES
 
-var ptcredentials = extend({
+// Personality Insight Credentials
+var picredentials = extend({
   version:'v1',
 	username: '<username>',
 	password: '<password>'
@@ -37,12 +38,11 @@ app.get('/', function(req, res){
 
 // Create the service wrapper
 var speechToText = watson.speech_to_text(stcredentials);
-var peechToText = watson.speech_to_text(ptcredentials);
-
+var personality_insights = watson.speech_to_text(picredentials);
 
 // Configure express
 require('./config/express')(app, speechToText);
-require('./config/express')(app, peechToText);
+require('./config/express')(app, personality_insights);
 
 // Configure sockets
 require('./config/socket')(io, speechToText);
