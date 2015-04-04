@@ -65,7 +65,6 @@ table {
 	width: 800px;
 	margin: 0 auto;
 	word-wrap: break-word;
-	padding-top:10%;
 }
 
 th {
@@ -104,7 +103,7 @@ input[type="file"]:focus + .browse {
   margin-bottom: 40px;
 }
 .micText {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 10px;
   color: white;
   text-align: center;
