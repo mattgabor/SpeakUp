@@ -9,15 +9,17 @@ body,html {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color: #ffffff;
 	width: auto;
+    text-align: center;
 }
 
 #maintext {
 	font-size:36px;
+    text-align: center;
 }
 
 #content{
 	font-size: 20px;
-	text-align: center;
+    text-align: left;
 
 }
 
