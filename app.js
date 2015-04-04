@@ -15,11 +15,18 @@ var app = require('express')(),
   app.set('view engine', 'jade');
 
 // if bluemix credentials exists, then override local
-var credentials = extend({
+var stcredentials = extend({
   version:'v1',
 	username: '<username>',
 	password: '<password>'
 }, bluemix.getServiceCreds('speech_to_text')); // VCAP_SERVICES
+
+var ptcredentials = extend({
+  version:'v1',
+	username: '<username>',
+	password: '<password>'
+}, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
+
 
 app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
 
@@ -29,10 +36,13 @@ app.get('/', function(req, res){
 });
 
 // Create the service wrapper
-var speechToText = watson.speech_to_text(credentials);
+var speechToText = watson.speech_to_text(stcredentials);
+var peechToText = watson.speech_to_text(ptcredentials);
+
 
 // Configure express
 require('./config/express')(app, speechToText);
+require('./config/express')(app, peechToText);
 
 // Configure sockets
 require('./config/socket')(io, speechToText);
