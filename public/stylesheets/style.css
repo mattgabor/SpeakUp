@@ -115,9 +115,9 @@ input[type="file"]:focus + .browse {
     width: 100%;
 }
 .micButton {
-    background: url('../images/microphone.svg') no-repeat;
-    width: 120px;
-    height: 120px;
+    background: url('../images/microphone.png') no-repeat;
+    width: 150px;
+    height: 150px;
     margin: 0px auto;
     cursor: pointer;
 }
