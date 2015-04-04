@@ -1,8 +1,12 @@
 applications:
-- disk_quota: 1024M
-  host: speak-up
-  name: speak-up
+- services:
+  - Personality Insights-z4
+  - Speech To Text-qe
+  - Relationship Extraction-en
+  disk_quota: 1024M
+  host: speak-up-euro
+  name: speak-up-euro
   path: .
-  domain: mybluemix.net
+  domain: eu-gb.mybluemix.net
   instances: 1
   memory: 256M
