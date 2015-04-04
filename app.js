@@ -5,64 +5,25 @@
 // This sample application uses express as web application framework (http://expressjs.com/),
 // and jade as template engine (http://jade-lang.com/).
 
-var express = require('express');
-
-// setup middleware
-var app = express();
-app.use(app.router);
-app.use(express.errorHandler());
-bluemix = require('./config/bluemix'),
-watson = require('watson-developer-cloud'),
-app.use(express.static(__dirname + '/public')); //setup static public directory
-app.set('view engine', 'jade');
-app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
-//extend = require('util')._extend;
-
-//// Bootstrap application settings
-//require('./config/express')(app);
-//
-//// credentials
-//var credentials = extend({
-//    version: 'v2',
-//    // our info
-//    password: 'VVKrMofl3Si9',
-//    url: 'https://stream.watsonplatform.net/speech-to-text-beta/api',
-//    username: 'ddcc71d6-8535-46ca-8e8c-02c4e040c05b'
-//}, bluemix.getServiceCreds('speech_to_text')); // VCAP_SERVICES
-//
-//var speechToText = watson.speech_to_text(credentials);
-//
-//// Configure express
-//require('./config/express')(app, speechToText);
-//
-//// Configure sockets
-//require('./config/socket')(io, speechToText);
-
-// render index page
-app.get('/', function(req, res){
-	res.render('index');
-});
-
-app.get('/interpret', function(req, res){
-	res.render('interpret');
-});
-
-// There are many useful environment variables available in process.env.
-// VCAP_APPLICATION contains useful information about a deployed application.
-var appInfo = JSON.parse(process.env.VCAP_APPLICATION || "{}");
-// TODO: Get application information and use it in your app.
-
-// VCAP_SERVICES contains all the credentials of services bound to
-// this application. For details of its content, please refer to
-// the document or sample of each service.
-var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
-// TODO: Get service credentials and communicate with bluemix services.
-
-// The IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts this application:
-var host = (process.env.VCAP_APP_HOST || 'localhost');
-// The port on the DEA for communication with the application:
-var port = (process.env.VCAP_APP_PORT || 3000);
-// Start server
-app.listen(port, host);
-console.log('App started on port ' + port);
-
+'use strict';
+var app = require('express')(),
+  server = require('http').Server(app),
+  io = require('socket.io')(server),
+  bluemix = require('./config/bluemix'),
+  watson = require('watson-developer-cloud'),
+  extend = require('util')._extend;
+// if bluemix credentials exists, then override local
+var credentials = extend({
+  version:'v1',
+	username: '<username>',
+	password: '<password>'
+}, bluemix.getServiceCreds('speech_to_text')); // VCAP_SERVICES
+// Create the service wrapper
+var speechToText = watson.speech_to_text(credentials);
+// Configure express
+require('./config/express')(app, speechToText);
+// Configure sockets
+require('./config/socket')(io, speechToText);
+var port = process.env.VCAP_APP_PORT || 3000;
+server.listen(port);
+console.log('listening at:', port);
