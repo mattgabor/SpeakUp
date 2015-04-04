@@ -1,0 +1,12 @@
+---
+declared-services:
+  speech-to-text-service:
+    label: speech_to_text
+    plan: free
+applications:
+- name: speakUp
+  command: node app.js
+  path: .
+  memory: 256m
+  services:
+  - speech-to-text-service
