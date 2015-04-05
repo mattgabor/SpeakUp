@@ -36,8 +36,19 @@ var picredentials = extend({
     password: '<password>'
 }, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
 
-
 app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
+
+// Create the service wrapper
+var speechToText = watson.speech_to_text(stcredentials);
+var personalityInsights = new watson.personality_insights(picredentials);
+
+// Configure express
+require('./config/express')(app, speechToText);
+require('./config/express')(app, personalityInsights);
+
+// Configure sockets
+require('./config/socket')(io, speechToText);
+
 
 // render index page
 app.get('/', function(req, res){
@@ -53,16 +64,18 @@ app.get('/results1', function(req, res){
 	res.render('results1');
 });
 
-// Create the service wrapper
-var speechToText = watson.speech_to_text(stcredentials);
-var personalityInsights = new watson.personality_insights(picredentials);
-
-// Configure express
-require('./config/express')(app, speechToText);
-require('./config/express')(app, personalityInsights);
-
-// Configure sockets
-require('./config/socket')(io, speechToText);
+app.post('/', function(req, res) {
+  personalityInsights.profile(req.body, function(err, profile) {
+    if (err) {
+      if (err.message){
+        err = { error: err.message };
+      }
+      return res.status(err.code || 500).json(err || 'Error processing the request');
+    }
+    else
+      return res.json(profile);
+  });
+});
 
 var port = process.env.VCAP_APP_PORT || 3000;
 server.listen(port);
