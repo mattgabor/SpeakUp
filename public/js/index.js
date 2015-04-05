@@ -7,10 +7,11 @@ function changePage( callback) {
     callback();
 }
 
-function goHome() {
-	window.location = '/';
-	console.log("going home");
+function goHome( callback) {
+    window.location='/';
+    callback();
 }
+
 
 function analysis() {
 

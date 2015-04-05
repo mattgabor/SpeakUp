@@ -12,6 +12,15 @@ body,html {
   text-align: center;
 }
 
+#speaker{
+  background-image: url("/images/speaker.png");
+  background-size: 200px 233px;
+}
+
+#user{
+  background-image: url("/images/user.png");
+}
+
 #maintext {
    font-size:36px;
    text-align: center;
