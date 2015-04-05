@@ -1,0 +1,72 @@
+doctype html
+html(lang='en')
+  head
+    title Personality Insights
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='/images/favicon.ico', type='image/x-icon')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/watson-bootstrap-dark.css')
+  body
+    .container
+      .row
+        .col-lg-6.col-md-6.col-xs-12
+          h2 Try the service
+          .well
+            .form-group.row
+              .col-lg-12.col-xs-12
+                textarea.content.form-control(rows='8', required='true', placeholder='Please enter the text to analyze (minimum of 100 words)...')
+                .text-right
+                  span.wordsCount.small
+            .form-group.row
+              .col-lg-4.col-lg-push-4.col-xs-4
+                button.btn.btn-block.clear-btn(type='button') Clear
+              .col-lg-4.col-lg-push-4.col-xs-4.col-xs-push-4
+                button.btn.btn-block.analysis-btn(type='button') Analyze
+        .col-lg-6.col-md-6.col-xs-12
+          .row
+            .form-group.row.loading.text-center.loading(style='display:none;')
+              h2  
+              img(src='images/watson.gif')
+            .form-group.row.error(style='display: none;')
+              h2  
+              .well
+                p.errorMsg
+          .results(style='display: none;')
+            h3(style='height: 29px;') Your Personality*
+            .well
+              .summary-div
+              .text-right(style='color: gray')
+                em.small *Compared to most people who participated in our surveys.
+        .results(style='display: none;')
+          .row
+            .col-lg-5.col-md-5.col-xs-12
+              h3 Data Behind Your Personality
+              .col540px.well.traits(style='display: none;')
+            .col-lg-7.col-xs-12.col-md-7
+              h3 Visualization of Personality Data
+              #vizcontainer.well
+        .hidden
+          #header-template
+            .row.theader
+              .col-lg-5.col-xs-5
+                span Name
+              .col-lg-7.col-xs-7.text-right
+                span Value ± Sampling Error
+          #trait-template
+            .row
+              .tname.col-lg-7.col-xs-7
+                span
+              .tvalue.col-lg-5.col-xs-5.text-right
+                span
+          #model-template
+            .row
+              .col-lg-12.col-xs-12.text-center
+                span
+    script(type='text/javascript', src='/js/jquery-1.11.1.min.js')
+    script(type='text/javascript', src='/js/d3.v2.min.js')
+    script(type='text/javascript', src='/js/demo.js')
+    script(type='text/javascript', src='/js/personality.js')
+    script(type='text/javascript', src='/js/textsummary.js')
