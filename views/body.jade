@@ -1,42 +1,38 @@
-//- body.jade
-//- This file provides the HTML body part.
-
-
-body
-  table
-    tr
-      td
-        #maintext
-          h1 Speak Up!
-          #content
-             p Step 1) Record a speech for at least 30 seconds
-             p Step 2) Speak Up will analyze your speech and personality traits
-             p Step 3) Receive improvement reccomendations from Speak Up and try again!
-               div.container
-                   div.row
-                   div.col-lg-6.col-md-6.col-xs-12
-                       div.row
-                         div.col-lg-12.col-md-12.col-xs-12a
-                           p.form-group For best results, please use a hi-speed internet connection and a close talking microphone (e.g., from a headset) in a quiet area.
-                           div.microphone
-                             div.micButton-preload
-                             div.micButton
-                             p.micText Press to start speaking
-                               div.well
-                                 div.form-group.row.loading.text-center(style='display:none')
-                                   img(src='images/watson.gif')
-                                 div.errorMsg
-                                 div#text
-              div.temp
+html
+  body
+    table
+      tr
+        td
+          #maintext
+            h1 Speak Up!
+            #content
+              p Step 1) Record a speech for at least 30 seconds
+              p Step 2) Speak Up will analyze your speech and personality traits
+              p
+                | Step 3) Receive improvement reccomendations from Speak Up and try again!
+                .container
+                  .row
+                  .col-lg-6.col-md-6.col-xs-12
+                    .row
+                      .col-lg-12.col-md-12.col-xs-12a
+                        p.form-group
+                          | For best results, please use a hi-speed internet connection and a close talking microphone (e.g., from a headset) in a quiet area.
+                        .microphone
+                          .micButton-preload
+                          .micButton
+                          p.micText
+                            | Press to start speaking
+              .temp
                 .box.bg-1
-                    button.button.button--wayra.button--border-thick.button--text-upper.button--size-s(onclick='dataTransfer()') Results
-  script(type='text/javascript', src='/js/index.js')
-  script(type='text/javascript', src='/js/browser-detect.js')
-  script(type='text/javascript', src='/js/jquery-1.11.1.min.js')
-  script(type='text/javascript', src='/js/speech-recognizer.js')
-  script(type='text/javascript', src='/js/socket.io.js')
-  script(type='text/javascript', src='/js/demo.js')
-
-
-
-
+                  form(action='/results', method='POST')
+                    .well
+                      .form-group.row.loading.text-center(style='display:none')
+                        img(src='images/watson.gif')
+                      .errorMsg
+                      input#text(type='text', value='sdadada')
+                    button#abcd.button.button--wayra.button--border-thick.button--text-upper.button--size-s(type='submit', value='trtrtr') Results
+    script(type='text/javascript', src='/js/browser-detect.js')
+    script(type='text/javascript', src='/js/jquery-1.11.1.min.js')
+    script(type='text/javascript', src='/js/speech-recognizer.js')
+    script(type='text/javascript', src='/js/socket.io.js')
+    script(type='text/javascript', src='/js/demo.js')

@@ -55,14 +55,16 @@ app.get('/', function(req, res){
 	res.render('index');
 });
 
-// render results page
-app.get('/results', function(req, res){
-	res.render('results');
+
+app.post('/results', function(req, res){
+	var te = req.body.results;
+	console.log(te);
+	res.render('results'), {results : te};
+
+	
 });
 
-app.get('/results1', function(req, res){
-	res.render('results1');
-});
+
 
 app.post('/', function(req, res) {
   personalityInsights.profile(req.body, function(err, profile) {
