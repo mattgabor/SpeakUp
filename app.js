@@ -41,11 +41,6 @@ var speechToText = watson.speech_to_text(stcredentials);
 var personality_insights = watson.speech_to_text(picredentials);
 
 
-console.log(transcript);
-
-var transcript = $('.well').text();
-
-
 // Configure express
 require('./config/express')(app, speechToText);
 require('./config/express')(app, personality_insights);
