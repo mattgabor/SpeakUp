@@ -29,8 +29,13 @@ html
                       .form-group.row.loading.text-center(style='display:none')
                         img(src='images/watson.gif')
                       .errorMsg
+<<<<<<< HEAD
                       #text
                       button#abcd.button.button--wayra.button--border-thick.button--text-upper.button--size-s(name='btn') Results
+=======
+                      input#text(name='results', type='text')
+                      button#abcd.button.button--wayra.button--border-thick.button--text-upper.button--size-s(type='submit', name='btn', onclick='dataTransfer()') Results
+>>>>>>> origin/master
     script(type='text/javascript', src='/js/browser-detect.js')
     script(type='text/javascript', src='/js/jquery-1.11.1.min.js')
     script(type='text/javascript', src='/js/speech-recognizer.js')
