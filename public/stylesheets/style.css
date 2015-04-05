@@ -12,13 +12,22 @@ body,html {
   text-align: center;
 }
 
+#speak{
+  display:inline-block;
+}
+
 #speaker{
-  background-image: url("/images/speaker.png");
-  background-size: 200px 233px;
+  content: url("/images/speaker.png");
+  float:right;
 }
 
 #user{
-  background-image: url("/images/user.png");
+  content: url("/images/user.png");
+  float:left;
+}
+
+#headertext{
+
 }
 
 #maintext {
