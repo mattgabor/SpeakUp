@@ -3,5 +3,5 @@
  */
 console.log("hello2'");
 function dataTransfer () {
-    console.log("hello");
+    window.location='/results';
 }
