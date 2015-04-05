@@ -21,11 +21,19 @@ var stcredentials = extend({
 	password: '<password>'
 }, bluemix.getServiceCreds('speech_to_text')); // VCAP_SERVICES
 
-// Personality Insight Credentials
+// V1 Personality Insight Credentials
+// var picredentials = extend({
+//   version:'v1',
+// 	username: '<username>',
+// 	password: '<password>'
+// }, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
+
+// V2 Personality Insight Credentials
 var picredentials = extend({
-  version:'v1',
-	username: '<username>',
-	password: '<password>'
+    version: 'v2',
+    url: '<url>',
+    username: '<username>',
+    password: '<password>'
 }, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
 
 
@@ -36,14 +44,21 @@ app.get('/', function(req, res){
 	res.render('index');
 });
 
+// render results page
+app.get('/results', function(req, res){
+	res.render('results');
+});
+
+
 // Create the service wrapper
 var speechToText = watson.speech_to_text(stcredentials);
-var personality_insights = watson.speech_to_text(picredentials);
+var personalityInsights = new watson.personality_insights(picredentials);
+
 
 
 // Configure express
 require('./config/express')(app, speechToText);
-require('./config/express')(app, personality_insights);
+require('./config/express')(app, personalityInsights);
 
 // Configure sockets
 require('./config/socket')(io, speechToText);
