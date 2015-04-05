@@ -11,9 +11,12 @@ var app = require('express')(),
   io = require('socket.io')(server),
   bluemix = require('./config/bluemix'),
   watson = require('watson-developer-cloud'),
+  bodyParser = require('body-parser'),
   extend = require('util')._extend;
   app.set('view engine', 'jade');
 
+  //Here we are configuring express to use body-parser as middle-ware.
+  app.use(bodyParser.urlencoded({ extended: false }));
 // Speech to Text Credentials
 var stcredentials = extend({
   version:'v1',
