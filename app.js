@@ -77,8 +77,9 @@ app.post('/', function(req, res) {
       }
       return res.status(err.code || 500).json(err || 'Error processing the request');
     }
-    else
-      return res.json(profile);
+    else {
+        return res.json(profile);
+    }
   });
 });
 

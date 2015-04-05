@@ -40,6 +40,10 @@ body,html {
   text-align: left;
 }
 
+#textBox {
+    padding-top: 2em;
+}
+
 .temp{
     text-align: center;
 }
