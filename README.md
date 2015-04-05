@@ -1,17 +1,37 @@
-This README.md file is displayed on your project page. You should edit this 
-file to describe your project, including instructions for building and 
-running the project, pointers to the license under which you are making the 
-project available, and anything else you think would be useful for others to
-know.
+Inspiration
 
-We have created an empty license.txt file for you. Well, actually, it says,
-"<Replace this text with the license you've chosen for your project.>" We 
-recommend you edit this and include text for license terms under which you're
-making your code available. A good resource for open source licenses is the 
-[Open Source Initiative](http://opensource.org/).
+A passion for great public speaking, and a desire to empower others to overcome their fear of it.
 
-Be sure to update your project's profile with a short description and 
-eye-catching graphic.
+How it works
 
-Finally, consider defining some sprints and work items in Track & Plan to give 
-interested developers a sense of your cadence and upcoming enhancements.
+Uses IBM Watson's Speech to Text and Personality Insights services to create a personalized analysis of your public speaking performance, all hosted on the IBM Bluemix cloud.
+
+Challenges I ran into
+
+Manipulating IBM Watson's personality attributes, creating post/get requests to pass JS objects between pages, manipulating UI elements, and lack of sleep.
+
+Accomplishments that I'm proud of
+
+Merged two services from Watson, wrote ajax calls to manipulate node data, built a clean UI.
+
+What I learned
+
+Two new languages and a framework, Node.JS, Jade, and Express. Also learned how to use POST and GET requests, and incorporate an API. Learned how to use IBM Bluemix and Watson Services.
+
+What's next for Speak Up
+
+Virtual Reality Public Speaking Simulation, analysis of results in front of a crowd vs. on your own.
+
+Built With
+
+git
+github
+jade
+javascript
+node.js
+html5
+css3
+express.js
+watson
+bluemix
+cloud-foundry
