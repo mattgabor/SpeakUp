@@ -3,6 +3,7 @@
  */
 function dataTransfer () {
 
+    analysis();
 
 }
 
@@ -14,4 +15,12 @@ function changePage( callback) {
 function goHome() {
 	window.location = '/';
 	console.log("going home");
+}
+
+function analysis() {
+
+    
+
+    document.getElementById("analyze").click(); // Click on the checkbox
+
 }
