@@ -58,17 +58,16 @@ app.get('/', function(req, res){
 	res.render('index');
 });
 
+app.get('/results', function(req, res) {
+  console.log(app.locals.te);
+  res.render('results', {results : app.locals.te});
+  });
 
 app.post('/results', function(req, res){
 	var te = req.body.results;
-	console.log(te);
-	console.log("hi");
-	res.render('results'), {results : te};
-
-	
+  app.locals.te = te;
+  res.redirect('/results');
 });
-
-
 
 app.post('/', function(req, res) {
   personalityInsights.profile(req.body, function(err, profile) {
