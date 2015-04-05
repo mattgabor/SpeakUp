@@ -49,12 +49,13 @@ app.get('/results', function(req, res){
 	res.render('results');
 });
 
+app.get('/results1', function(req, res){
+	res.render('results1');
+});
 
 // Create the service wrapper
 var speechToText = watson.speech_to_text(stcredentials);
 var personalityInsights = new watson.personality_insights(picredentials);
-
-
 
 // Configure express
 require('./config/express')(app, speechToText);
