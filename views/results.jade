@@ -14,7 +14,7 @@ html(lang='en')
   body
     .container
       .row
-        #textBox.col-lg-6.col-md-6.col-xs-12
+        .col-lg-6.col-md-6.col-xs-12
           h3#columnHeaders Your Speech
           .well
             .form-group.row
@@ -37,18 +37,18 @@ html(lang='en')
               .well
                 p.errorMsg
           .results(style='display: none;')
-            h3(style='height: 29px;') Your Personality*
+            h3#columnHeaders(style='height: 29px;') Your Personality*
             .well
               .summary-div
               .text-right(style='color: gray')
                 em.small *Compared to most people who participated in our surveys.
         .results(style='display: none;')
           .row
-            #columnHeaders.col-lg-5.col-md-5.col-xs-12
-              h3 Data Behind Your Personality
+            .col-lg-5.col-md-5.col-xs-12
+              h3#columnHeaders Data Behind Your Personality
               .col540px.well.traits(style='display: none;')
-            #columnHeaders.col-lg-7.col-xs-12.col-md-7
-              h3 Visualization of Personality Data
+            .col-lg-7.col-xs-12.col-md-7
+              h3#columnHeaders Visualization of Personality Data
               #vizcontainer.well2
         .bg-1
           a(href='/')
