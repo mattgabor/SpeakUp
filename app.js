@@ -66,3 +66,5 @@ require('./config/socket')(io, speechToText);
 var port = process.env.VCAP_APP_PORT || 3000;
 server.listen(port);
 console.log('listening at:', port);
+
+

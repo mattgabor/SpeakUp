@@ -29,8 +29,10 @@ body
                                  div#text
               div.temp
                 .box.bg-1
-                  button.button.button--wayra.button--border-thick.button--text-upper.button--size-s Results
-      script(type='text/javascript', src='/js/browser-detect.js')
+                    button.button.button--wayra.button--border-thick.button--text-upper.button--size-s(onclick='dataTransfer()') Results
+
+  script(type='text/javascript', src='/js/index.js')
+  script(type='text/javascript', src='/js/browser-detect.js')
   script(type='text/javascript', src='/js/jquery-1.11.1.min.js')
   script(type='text/javascript', src='/js/speech-recognizer.js')
   script(type='text/javascript', src='/js/socket.io.js')
