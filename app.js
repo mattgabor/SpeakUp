@@ -59,6 +59,7 @@ app.get('/', function(req, res){
 app.post('/results', function(req, res){
 	var te = req.body.results;
 	console.log(te);
+	console.log("hi");
 	res.render('results'), {results : te};
 
 	
