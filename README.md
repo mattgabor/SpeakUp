@@ -1,4 +1,4 @@
-###Speak Up!  https://travis-ci.org/mattymcgee/SpeakUp.svg?branch=master
+###Speak Up!  [![Build Status](https://travis-ci.org/mattymcgee/SpeakUp.svg?branch=master)](https://travis-ci.org/mattymcgee/SpeakUp)
 
 Link to Webapp: http://goo.gl/De5kbU (use chrome)
 
