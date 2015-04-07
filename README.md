@@ -22,5 +22,3 @@ css3
 watson
 bluemix
 cloud-foundry
-
-MIT Open Source License Pending.
