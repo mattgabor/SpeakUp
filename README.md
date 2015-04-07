@@ -1,6 +1,6 @@
 ###Speak Up!
 
-Link to webapp: http://goo.gl/De5kbU (use chrome)
+Link to Webapp: http://goo.gl/De5kbU (use chrome)
 
 ##How it works
 
