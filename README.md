@@ -1,6 +1,4 @@
-###Speak Up! ![AmqpListener Icon](http://github.com/scottyapp/hook.io-amqp-listener/raw/master/assets/amqp-listener114x114.png)
-
-[![Build Status](https://secure.travis-ci.org/scottyapp/hook.io-amqp-listener.png)](http://travis-ci.org/scottyapp/hook.io-amqp-listener.png)
+###Speak Up!  https://travis-ci.org/mattymcgee/SpeakUp.svg?branch=master
 
 Link to Webapp: http://goo.gl/De5kbU (use chrome)
 
