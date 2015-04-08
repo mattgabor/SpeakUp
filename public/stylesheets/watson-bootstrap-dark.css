@@ -5919,6 +5919,11 @@ h2 {
   color: #00b2ef;
   font-weight: 200;
 }
+
+h4 {
+    color: #00b2ef;
+}
+
 table.table,
 .table tr td {
   border: 0;
