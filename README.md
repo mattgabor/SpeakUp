@@ -1,39 +1,24 @@
-Website link: speak-up-euro.eu-gb.mybluemix.net
+###Speak Up!  [![Build Status](https://travis-ci.org/mattymcgee/SpeakUp.svg?branch=master)](https://travis-ci.org/mattymcgee/SpeakUp)
 
-Inspiration
+Link to Webapp: http://goo.gl/De5kbU (use chrome)
 
-A passion for great public speaking, and a desire to empower others to overcome their fear of it.
+##How it works
 
-How it works
+Speak Up uses IBM Watson's Speech to Text and Personality Insights services to create a personalized analysis of your public speaking performance, all hosted on the IBM Bluemix cloud.
 
-Uses IBM Watson's Speech to Text and Personality Insights services to create a personalized analysis of your public speaking performance, all hosted on the IBM Bluemix cloud.
+##Instructions
+Step 1) Record a speech for at least 45 seconds
 
-Challenges I ran into
+Step 2) Speak Up will analyze your speech and personality traits
 
-Manipulating IBM Watson's personality attributes, creating post/get requests to pass JS objects between pages, manipulating UI elements, and lack of sleep.
+Step 3) Receive improvement reccomendations from Speak Up and try again!
 
-Accomplishments that I'm proud of
+##Technologies used
 
-Merged two services from Watson, wrote ajax calls to manipulate node data, built a clean UI.
-
-What I learned
-
-Two new languages and a framework, Node.JS, Jade, and Express. Also learned how to use POST and GET requests, and incorporate an API. Learned how to use IBM Bluemix and Watson Services.
-
-What's next for Speak Up
-
-Virtual Reality Public Speaking Simulation, analysis of results in front of a crowd vs. on your own.
-
-Built With
-
-git
-github
-jade
-javascript
 node.js
-html5
-css3
 express.js
+jade
+css3
 watson
 bluemix
 cloud-foundry
