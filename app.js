@@ -6,7 +6,7 @@
 // and jade as template engine (http://jade-lang.com/).
 
 'use strict';
-var app = require('express')(),
+const app = require('express')(),
   server = require('http').Server(app),
   io = require('socket.io')(server),
   bluemix = require('./config/bluemix'),
@@ -18,7 +18,7 @@ var app = require('express')(),
   //Here we are configuring express to use body-parser as middle-ware.
   app.use(bodyParser.urlencoded({ extended: false }));
 // Speech to Text Credentials
-var stcredentials = extend({
+const stcredentials = extend({
   version:'v1',
 	username: '<username>',
 	password: '<password>'
@@ -32,7 +32,7 @@ var stcredentials = extend({
 // }, bluemix.getServiceCreds('personality_insights')); // VCAP_SERVICES
 
 // V2 Personality Insight Credentials
-var picredentials = extend({
+const picredentials = extend({
     version: 'v2',
     url: '<url>',
     username: '<username>',
@@ -42,8 +42,8 @@ var picredentials = extend({
 app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
 
 // Create the service wrapper
-var speechToText = watson.speech_to_text(stcredentials);
-var personalityInsights = new watson.personality_insights(picredentials);
+const speechToText = watson.speech_to_text(stcredentials);
+const personalityInsights = new watson.personality_insights(picredentials);
 
 // Configure express
 require('./config/express')(app, speechToText);
@@ -54,23 +54,23 @@ require('./config/socket')(io, speechToText);
 
 
 // render index page
-app.get('/', function(req, res){
+app.get('/', (req, res) => {
 	res.render('index');
 });
 
-app.get('/results', function(req, res) {
+app.get('/results', (req, res) => {
   console.log(app.locals.te);
   res.render('results', {results : app.locals.te});
   });
 
-app.post('/results', function(req, res){
-	var te = req.body.results;
+app.post('/results', (req, res) => {
+  const te = req.body.results;
   app.locals.te = te;
   res.redirect('/results');
 });
 
-app.post('/', function(req, res) {
-  personalityInsights.profile(req.body, function(err, profile) {
+app.post('/', (req, res) => {
+  personalityInsights.profile(req.body, (err, profile) => {
     if (err) {
       if (err.message){
         err = { error: err.message };
@@ -83,7 +83,7 @@ app.post('/', function(req, res) {
   });
 });
 
-var port = process.env.VCAP_APP_PORT || 3000;
+const port = process.env.VCAP_APP_PORT || 3000;
 server.listen(port);
 console.log('listening at:', port);
 
